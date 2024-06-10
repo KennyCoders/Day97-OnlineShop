@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ product.image }}" class="img-responsive" style="width:100%; max-width:400px;" alt="{{ product.name }}">
+            </div>
+            <div class="col-md-4">
+                <h2>{{ product.name }}</h2>
+                <p class="lead">${{ product.price }}</p>
+                <p>{{ product.description }}</p>
+                <h4>Product Details</h4>
+                <p>{{ product.details }}</p>
+                 <form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="post">
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                     <button type="submit" class="btn btn-primary">Checkout</button>
+                         </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}
